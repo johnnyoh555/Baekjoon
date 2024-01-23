@@ -5,6 +5,8 @@
 #include <algorithm>
 
 int main(void) {
+	std::ios::sync_with_stdio(false);
+	std::cin.tie(nullptr);
 	std::vector<int>	D(11);
 	std::vector<int>	V(11);
 
