@@ -5,8 +5,8 @@
 #include <cstring>
 
 using namespace std;
-int dx[4] = {0, -1, 0, 1};
-int dy[4] = {-1, 0, 1, 0};
+int dx[4] = {0, -1, 1, 0};
+int dy[4] = {-1, 0, 0, 1};
 int arr[22][22];
 int N, s, cnt, t;
 bool vis[22][22];
