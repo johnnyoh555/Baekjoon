@@ -23,6 +23,7 @@ int main() {
 		pq.pop();
 		b = pq.top();
 		pq.pop();
+		cout << a << ' ' << b << '\n';
 		sum += a + b;
 		pq.push(a + b);
 	}
