@@ -27,6 +27,6 @@ int main() {
       ans += dp[i][j][N];
       if (ans >= mod) ans %= mod;
     }
-  }
   cout << ans << '\n';
+  }
 }
