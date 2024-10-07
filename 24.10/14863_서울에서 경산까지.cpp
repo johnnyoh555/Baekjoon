@@ -13,12 +13,9 @@ int main() {
     int a, b, c, d;
     cin >> a >> b >> c >> d;
     if (a > c || (a == c && b > d)) {swap(a, c); swap(b, d);}
-    arr[i][0] = c;
-    arr[i][1] = d;
-    arr[i][2] = a;
-    arr[i][3] = b;
-    t += a;
-    v += b;
+    arr[i][0] = c; arr[i][1] = d;
+    arr[i][2] = a; arr[i][3] = b;
+    t += a; v += b;
   }
   K -= t;
   for (int i = 0; i < N; i++)
