@@ -7,7 +7,7 @@ long gcd(long a, long b) {
 }
 
 long ft(long a, long b) {
-  int i = 1, GCD;
+  int GCD;
   while (a != 1) {
     long r = (b % a == 0) ? b / a : b / a + 1;
     a = a * r - b;
