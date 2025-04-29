@@ -3,9 +3,9 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
-int A, B, N, b, r, bdx, rdx, cnt = 1;
-vector<pair<int, int>> vb, vr;
-vector<int> bns, rns;
+int A, B, N, Blue_Time, Red_Time, Blue_idx, Red_idx, cnt = 1;
+vector<pair<int, int>> Blue_Order, Red_Order;
+vector<int> Blue_ans, Red_ans;
 
 int main() {
   ios::sync_with_stdio(0);
@@ -15,39 +15,38 @@ int main() {
   for (int i = 0; i < N; i++) {
     int x, y; char c; cin >> x >> c >> y;
     if (c == 'B') {
-      vb.push_back({x, y});
+      Blue_Order.push_back({x, y});
     } else {
-      vr.push_back({x, y});
+      Red_Order.push_back({x, y});
     }
   }
-  sort(vb.begin(), vb.end());
-  sort(vr.begin(), vr.end());
+  sort(Blue_Order.begin(), Blue_Order.end());
+  sort(Red_Order.begin(), Red_Order.end());
   while (true) {
-    if (bdx == vb.size()) b = 2e9;
-    else b = max(b, vb[bdx].first);
-
-    if (rdx == vr.size()) r = 2e9;
-    else r = max(r, vr[rdx].first);
-    if (b == 2e9 && r == 2e9) break;
-    if (b <= r) {
-      bns.push_back(cnt);
-      b += A;
-      if (vb[bdx].second == 1) bdx++;
-      else vb[bdx].second--; 
+    if (Blue_idx == Blue_Order.size()) Blue_Time = 2e9;
+    else Blue_Time = max(Blue_Time, Blue_Order[Blue_idx].first);
+    if (Red_idx == Red_Order.size()) Red_Time = 2e9;
+    else Red_Time = max(Red_Time, Red_Order[Red_idx].first);
+    if (Blue_Time == 2e9 && Red_Time == 2e9) break;
+    if (Blue_Time <= Red_Time) {
+      Blue_ans.push_back(cnt);
+      Blue_Time += A;
+      if (Blue_Order[Blue_idx].second == 1) Blue_idx++;
+      else Blue_Order[Blue_idx].second--; 
     } else {
-      rns.push_back(cnt);
-      r += B;
-      if (vr[rdx].second == 1) rdx++;
-      else vr[rdx].second--; 
+      Red_ans.push_back(cnt);
+      Red_Time += B;
+      if (Red_Order[Red_idx].second == 1) Red_idx++;
+      else Red_Order[Red_idx].second--; 
     }
     cnt++;
   }
-  cout << bns.size() << '\n';
-  for (int i = 0; i < bns.size() ; i++) {
-    cout << bns[i] << (i == bns.size() - 1 ? '\n' : ' ');
+  cout << Blue_ans.size() << '\n';
+  for (int i = 0; i < Blue_ans.size() ; i++) {
+    cout << Blue_ans[i] << (i == Blue_ans.size() - 1 ? '\n' : ' ');
   }
-  cout << rns.size() << '\n';
-  for (int i = 0; i < rns.size() ; i++) {
-    cout << rns[i] << (i == rns.size() - 1 ? '\n' : ' ');
+  cout << Red_ans.size() << '\n';
+  for (int i = 0; i < Red_ans.size() ; i++) {
+    cout << Red_ans[i] << (i == Red_ans.size() - 1 ? '\n' : ' ');
   }
 }

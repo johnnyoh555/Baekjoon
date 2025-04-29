@@ -7,20 +7,20 @@ vector<pair<int, int>> v[10001];
 bool vis[10001];
 
 int dfs(int x) {
-  int tmp1 = 0, tmp2 = 0;
-  for (auto nxt : v[x]) {
-    if (vis[nxt.first]) continue;
-    vis[nxt.first] = 1;
-    int tmp = dfs(nxt.first) + nxt.second;
-    if (tmp > tmp1) {
-      tmp2 = tmp1;
-      tmp1 = tmp;
-    } else if (tmp > tmp2) {
-      tmp2 = tmp;
+  int first = 0, second = 0;
+  for (auto [node, cost] : v[x]) {
+    if (vis[node]) continue;
+    vis[node] = 1;
+    int tmp = dfs(node) + cost;
+    if (tmp > first) {
+      second = first;
+      first = tmp;
+    } else if (tmp > second) {
+      second = tmp;
     }
-    if (ans < tmp1 + tmp2) ans = tmp1 + tmp2;
+    if (ans < first + second) ans = first + second;
   }
-  return tmp1;
+  return first;
 }
 
 int main() {
