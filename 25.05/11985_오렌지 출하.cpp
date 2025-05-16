@@ -15,8 +15,7 @@ int main() {
   }
   for (int i = 0; i < N; i++) {
     long mx = arr[i + 1], mn = arr[i + 1];
-    for (int j = 1; j <= M; j++) {
-      if (i + j > N) break;
+    for (int j = 1; j <= M && i + j <= N; j++) {
       mx = max(mx, arr[i + j]);
       mn = min(mn, arr[i + j]);
       dp[i + j] = min(dp[i + j], dp[i] + K + j * (mx - mn));
