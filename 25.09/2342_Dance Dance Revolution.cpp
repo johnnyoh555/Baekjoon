@@ -2,7 +2,7 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
-int dp[5][5], idx, ans = 2e9;
+int dp[5][5], ans = 2e9;
 
 int ft(int from, int to) {
   if (from == 0) return 2;
@@ -17,7 +17,7 @@ int main() {
   
   fill(&dp[0][0], &dp[4][5], 2e9);
   dp[0][0] = 0;
-  while (++idx) {
+  while (true) {
     int tmp; cin >> tmp;
     if (!tmp) break;
     int ndp[5][5];
