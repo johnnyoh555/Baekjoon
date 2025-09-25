@@ -19,9 +19,7 @@ int main() {
   ans = INF;
   fill(&dp[0][0], &dp[4][5], INF);
   dp[0][0] = 0;
-  while (true) {
-    int tmp; cin >> tmp;
-    if (!tmp) break;
+  for (int tmp; cin >> tmp && tmp != 0; ) {
     fill(&ndp[0][0], &ndp[4][5], INF);
     for (int i = 0; i < 5; i++) {
       for (int j = 0; j < 5; j++) {
